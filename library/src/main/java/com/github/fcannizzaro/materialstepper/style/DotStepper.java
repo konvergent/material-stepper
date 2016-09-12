@@ -86,7 +86,7 @@ public class DotStepper extends BaseNavigation {
 
     private void color(int i, boolean selected) {
         Drawable d = mDots.getChildAt(i).getBackground();
-        d.setColorFilter(new PorterDuffColorFilter(selected ? primaryColor : unselected, PorterDuff.Mode.SRC_ATOP));
+        d.setColorFilter(new PorterDuffColorFilter(selected ? accentColor : unselected, PorterDuff.Mode.SRC_ATOP));
     }
 
 }

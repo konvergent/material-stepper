@@ -32,7 +32,7 @@ public class BaseStyle extends AppCompatActivity implements Stepable {
     String mErrorString;
 
     // properties
-    int tintColor, primaryColor, primaryColorDark;
+    int tintColor, primaryColor, primaryColorDark, accentColor;
     boolean startPreviousButton = false;
     private int mErrorTimeout = 1500;
     private boolean useStateAdapter = false;
@@ -100,6 +100,10 @@ public class BaseStyle extends AppCompatActivity implements Stepable {
         this.primaryColorDark = primaryColorDark;
     }
 
+    protected void setAccentColor(int accentColor) {
+        this.accentColor = accentColor;
+    }
+
     // steps utils
 
     protected void addStep(AbstractStep step) {
@@ -126,6 +130,12 @@ public class BaseStyle extends AppCompatActivity implements Stepable {
             TypedValue typedValue = new TypedValue();
             getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
             primaryColor = typedValue.data;
+        }
+
+        if (accentColor == 0) {
+            TypedValue typedValue = new TypedValue();
+            getTheme().resolveAttribute(R.attr.colorAccent, typedValue, true);
+            accentColor = typedValue.data;
         }
 
         if (primaryColor == 0)

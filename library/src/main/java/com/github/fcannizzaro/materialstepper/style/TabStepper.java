@@ -187,7 +187,7 @@ public class TabStepper extends BasePager implements View.OnClickListener {
 
     private void color(View view, boolean selected) {
         Drawable d = view.getBackground();
-        d.setColorFilter(new PorterDuffColorFilter(selected ? primaryColor : unselected, PorterDuff.Mode.SRC_ATOP));
+        d.setColorFilter(new PorterDuffColorFilter(selected ? accentColor : unselected, PorterDuff.Mode.SRC_ATOP));
     }
 
     private void updateScrolling(int newPosition) {
@@ -228,6 +228,10 @@ public class TabStepper extends BasePager implements View.OnClickListener {
             updateScrolling(mSteps.current() + 1);
         } else
             onError();
+    }
+
+    protected void setButtonTextColor(int color){
+        mContinue.setTextColor(color);
     }
 
     @Deprecated
